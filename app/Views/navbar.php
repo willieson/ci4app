@@ -76,10 +76,11 @@
                                         </a>
                                     </li>
                                     <li class="pe-3">
-                                        <a href="#">
-                                            <svg class="user">
+                                        <a href="/logout">
+                                            <!-- <svg class="user">
                                                 <use xlink:href="#user"></use>
-                                            </svg>
+                                            </svg> -->
+                                            Logout
                                         </a>
                                     </li>
                                     <li>

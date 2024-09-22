@@ -12,4 +12,14 @@ class Home extends BaseController
 
         return view('index', $data);
     }
+
+    public function connTest()
+    {
+        $db = \Config\Database::connect();
+        if ($db->connect()) {
+            echo "Koneksi ke database berhasil!";
+        } else {
+            echo "Koneksi ke database gagal!";
+        }
+    }
 }

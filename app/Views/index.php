@@ -1,14 +1,26 @@
-<?= $this->extend('headfoot'); ?>
-<?= $this->section('content'); ?>
+<?php
+$status = session()->get('status');
 
-<section class="first-box">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h1>Halaman Awal</h1>
+if ($status == 'true') {
+?>
+
+  <?= $this->extend('headfoot'); ?>
+  <?= $this->section('content'); ?>
+
+  <section class="first-box">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Welcome <?= session()->get('name'); ?> </h1>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<?= $this->endSection(); ?>
+  <?= $this->endSection(); ?>
+
+<?php
+} else {
+  return redirect()->to('/login');
+}
+?>
