@@ -56,7 +56,7 @@
                     <form>
                         <div class="d-flex flex-row align-items-center justify-content-center justify-content-center">
                             <a href="<?= $uri_google; ?>">
-                                <img src="/images/google_btn.png">
+                                <img src="images/google_btn.png">
                             </a>
                         </div>
 
