@@ -19,10 +19,16 @@ class LoginController extends BaseController
     public function index()
     {
 
+        // Cek apakah session status ada dan benar
+        if (session()->get('status') == 'true') {
+            // Jika tidak ada session, redirect ke halaman login
+            return redirect()->route('home');
+        }
 
-        $client_id = '723636028103-hrfvflkrc73tevcnh354kud3svo288mj.apps.googleusercontent.com';
-        $client_secret = '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';
-        $redirect_uri = 'http://localhost:8080/login';
+
+        $client_id = env('google.client.id');
+        $client_secret = env('google.client.secret');
+        $redirect_uri = env('google.client.uri');
 
         $client = new Google_Client();
         $client->setClientId($client_id);
@@ -72,7 +78,7 @@ class LoginController extends BaseController
                 ];
                 session()->set($user_session);
 
-                return view('index', $data);
+                return redirect()->route('home');
             } else {
                 echo 'Login Gagal';
             }
@@ -88,25 +94,11 @@ class LoginController extends BaseController
 
     public function userLogout()
     {
-        session()->destroy();
+
         $access_token = session()->get('access_token');
         $revoke_client = new Google_Client();
         $revoke_client->revokeToken($access_token);
-        $client_id = '723636028103-hrfvflkrc73tevcnh354kud3svo288mj.apps.googleusercontent.com';
-        $client_secret = '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';
-        $redirect_uri = 'http://localhost:8080/login';
-
-        $client = new Google_Client();
-        $client->setClientId($client_id);
-        $client->setClientSecret($client_secret);
-        $client->setRedirectUri($redirect_uri);
-        $client->addScope('email');
-        $client->addScope('profile');
-        $uri_google = $client->createAuthUrl();
-        $data = [
-            'title' => 'Login | CI4 - Michael',
-            'uri_google' => $uri_google
-        ];
-        return view('login', $data);
+        session()->destroy();
+        return redirect()->route('login');
     }
 }

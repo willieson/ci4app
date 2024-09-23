@@ -4,8 +4,15 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
+
+        // Cek apakah session status ada dan benar
+        if (session()->get('status') !== 'true') {
+            // Jika tidak ada session, redirect ke halaman login
+            return redirect()->route('login');
+        }
+
         $data = [
             'title' => 'Home | CI4 - Michael'
         ];

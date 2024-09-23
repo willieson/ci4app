@@ -17,6 +17,12 @@
 # CI_ENVIRONMENT = production
 
 #--------------------------------------------------------------------
+# Google Service Login Client
+#--------------------------------------------------------------------
+#google.client.id = 723636028103-hrfvflkrc73tevcnh354kud3svo288mj.apps.googleusercontent.com
+#google.client.secret = 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
+#google.client.uri = http://localhost:8080/login
+#--------------------------------------------------------------------
 # APP
 #--------------------------------------------------------------------
 
