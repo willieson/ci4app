@@ -421,6 +421,23 @@ h3.cart-title {
   border: none;
 }
 
+.profile-view {
+  position: fixed; /* atau absolute, tergantung kebutuhan */
+  bottom: 20px; /* sesuaikan posisi vertikal */
+  right: 20px; /* sesuaikan posisi horizontal */
+  z-index: 1000; /* pastikan elemen berada di atas elemen lainnya */
+  transition: transform 0.3s; /* efek transisi */
+}
+
+.profile-view:hover {
+  transform: scale(1.05); /* efek zoom saat hover */
+}
+.rounded-image {
+  width: 100px; /* sesuaikan ukuran */
+  height: 100px; /* sesuaikan ukuran */
+  border-radius: 50%; /* membuat gambar menjadi bulat */
+  object-fit: cover; /* menjaga proporsi gambar */
+}
 /** Search Popup
 --------------------------------------------------------------*/
 .search-popup {

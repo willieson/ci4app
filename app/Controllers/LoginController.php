@@ -11,11 +11,7 @@ use Google_Service_Resource;
 
 class LoginController extends BaseController
 {
-    protected $userModel;
-    public function __construct()
-    {
-        $this->userModel = new UserModel();
-    }
+
     public function index()
     {
 

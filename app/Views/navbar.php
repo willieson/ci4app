@@ -22,16 +22,10 @@
                             <a class="nav-link me-4" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-4" href="#products">Products</a>
+                            <a class="nav-link me-4" href="market">Market</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-4" href="#smart-watches">Watches</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-4" href="#yearly-sale">Sale</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-4" href="#latest-blog">Blog</a>
+                            <a class="nav-link me-4" href="cimol">Get Cimol</a>
                         </li>
 
                         <li class="nav-item">
@@ -48,16 +42,13 @@
                                     <?php
                                     }
                                     ?>
-
-                                    <li class="pe-3">
-                                        <a href="/profile">
-                                            profile
-                                        </a>
-                                    </li>
                                     <li class="pe-3">
                                         <a href="/logout">
                                             Logout
                                         </a>
+                                    </li>
+                                    <li class="pe-3">
+                                        Cimol's: 5.000.000
                                     </li>
 
                                 </ul>
