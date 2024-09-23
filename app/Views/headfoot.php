@@ -208,8 +208,10 @@
             <div class="row d-flex flex-wrap justify-content-between">
                 <div class="col-md-4 col-sm-18">
                     <div class="copyright">
-                        <p>© Copyright Michael Willieson | Codeigniter 4
-                        </p>
+                        <a target="_BLANK" href="https://github.com/willieson/ci4app">
+                            <p>© Copyright Michael Willieson | Codeigniter 4
+                            </p>
+                        </a>
                     </div>
                 </div>
             </div>

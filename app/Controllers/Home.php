@@ -2,8 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 class Home extends BaseController
 {
+    protected $userModel;
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+    }
     public function index()
     {
 
@@ -13,9 +20,22 @@ class Home extends BaseController
             return redirect()->route('login');
         }
 
+        // Ambil oauth_id dari session
+        $user_id = session()->get('user_id');
+
+        if ($user_id) {
+            $user_data = $this->userModel->where('id', $user_id)->first();
+        } else {
+            $user_data = null;
+        }
+
+
         $data = [
-            'title' => 'Home | CI4 - Michael'
+            'title' => 'Home | CI4 - Michael',
+            'user_data' => $user_data
         ];
+
+
 
         return view('index', $data);
     }

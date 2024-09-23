@@ -104,9 +104,13 @@ a:hover {
 }
 
 .logo {
-  width: 30%;
+  width: 40%;
 }
-
+.carousel-inner img {
+  max-height: 500px; /* Sesuaikan tinggi maksimal sesuai kebutuhan */
+  width: auto;       /* Agar lebar gambar tetap proporsional */
+  margin: 0 auto;    /* Agar gambar tetap berada di tengah */
+}
 /*------------ Background Color -----------*/
 .bg-gray {
     background: var(--gray-color);

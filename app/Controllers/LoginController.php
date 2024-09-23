@@ -59,22 +59,26 @@ class LoginController extends BaseController
                         'email'    => $g_email
                         // Tambahkan field lain jika perlu
                     ]);
+
+                    // Simpan id pengguna ke dalam session
+                    $user_id = $check_query['id'];
                 } else {
                     $this->userModel->save([
                         'fullname' => $g_name,
                         'email' => $g_email,
                         'oauth_id' => $g_id
                     ]);
+                    // Ambil id pengguna yang baru dibuat
+                    $user_id = $this->userModel->insertID(); // Mendapatkan id yang baru saja dibuat
                 }
 
-                $data = [
-                    'title' => 'Home | CI4 - Michael'
-                ];
+
 
                 $user_session = [
                     'status' => 'true',
                     'access_token' => $access_token,
-                    'name' => $g_name
+                    'name' => $g_name,
+                    'user_id' => $user_id
                 ];
                 session()->set($user_session);
 
