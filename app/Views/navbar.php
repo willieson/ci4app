@@ -19,7 +19,7 @@
                 <div class="offcanvas-body">
                     <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link me-4" href="/">Home</a>
+                            <a class="nav-link me-4" href="<?= env('app.baseURL'); ?>">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link me-4" href="market">Market</a>
@@ -43,7 +43,7 @@
                                     }
                                     ?>
                                     <li class="pe-3">
-                                        <a href="/logout">
+                                        <a href="logout">
                                             Logout
                                         </a>
                                     </li>

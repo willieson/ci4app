@@ -54,7 +54,7 @@
 
         <button id="generateButton" class="btn btn-primary" onclick="generateMathProblem()">Get Cimol</button>
 
-        <form id="answerForm" method="POST" action="/check_answer">
+        <form id="answerForm" method="POST" action="check_answer">
           <div class="col d-flex">
             <input class="form-control" style="width: auto;" type="text" name="answer" placeholder="Answer" required>
             <button class="btn btn-success" type="submit">Checking</button>
