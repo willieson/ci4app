@@ -25,6 +25,12 @@
     }
   }
 
+  // Fungsi untuk menyembunyikan tombol submit setelah diklik
+  function hideSubmitButton() {
+    document.querySelector('button[type="submit"]').style.display = 'none'; // Sembunyikan tombol submit
+    return true; // Lanjutkan untuk submit form
+  }
+
   // Tampilkan pesan jika ada
   window.onload = function() {
     <?php if (session()->get('message')): ?>
@@ -54,7 +60,7 @@
 
         <button id="generateButton" class="btn btn-primary" onclick="generateMathProblem()">Get Cimol</button>
 
-        <form id="answerForm" method="POST" action="check_answer">
+        <form id="answerForm" method="POST" action="check_answer" onsubmit="return hideSubmitButton();">
           <div class="col d-flex">
             <input class="form-control" style="width: auto;" type="text" name="answer" placeholder="Answer" required>
             <button class="btn btn-success" type="submit">Checking</button>

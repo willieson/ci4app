@@ -167,15 +167,51 @@ class Home extends BaseController
             if ($mathProblem) {
                 $correct_answer = $mathProblem['result'];
 
-                // Pembulatan untuk perbandingan
+                function customRandWithDynamicProbability()
+                {
+                    // Definisikan angka dan persentase peluang dalam array
+                    $probabilities = [
+                        10 => 20,
+                        15 => 15,
+                        20 => 10,
+                        30 => 1,
+                        50 => 0.1
+                    ];
+
+                    // Hitung total peluang
+                    $totalPercentage = array_sum($probabilities);
+
+                    // Hasilkan angka acak dari 1 hingga 10000 untuk probabilitas
+                    $probability = rand(1, 10000);
+
+                    // Variabel untuk melacak probabilitas kumulatif
+                    $cumulative = 0;
+
+                    // Iterasi melalui angka-angka dan peluangnya
+                    foreach ($probabilities as $number => $percentage) {
+                        // Perbesar peluang menjadi basis 10000 untuk presisi (misalnya 30% -> 3000)
+                        $cumulative += $percentage * 100;
+
+                        // Jika angka acak berada dalam rentang kumulatif saat ini, kembalikan angka tersebut
+                        if ($probability <= $cumulative) {
+                            return $number;
+                        }
+                    }
+
+                    // Jika tidak ada angka khusus yang terpenuhi, kembalikan angka acak antara 1 hingga 5
+                    return rand(1, 5);
+                }
+
+                // Controller code
                 if (round($user_answer, 2) === round($correct_answer, 2)) {
-                    $random_cimol = rand(1, 5);
+                    $random_cimol = customRandWithDynamicProbability();  // Panggil fungsi custom
                     $message = "Congratulation! You Got = " . $random_cimol . " Cimol's";
-                    //tambah di database cimolnya dengan rumus $random_cimol - 2
+                    // Tambahkan cimol ke database dengan rumus $random_cimol - 2
                 } else {
                     $message = "Oops!!! Try Again. Answer =  " . round($correct_answer, 2);
-                    //kurangi cimolnya
+                    // Kurangi cimol dari database
                 }
+
 
                 // Simpan pesan dalam sesi
                 session()->set('message', $message);
